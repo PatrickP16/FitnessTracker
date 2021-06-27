@@ -1,0 +1,32 @@
+#app {
+    display: flex;
+    flex-direction: row;
+    height: 100vh;
+}
+
+#app main {
+    height: 100%;
+    width: 80%;
+    min-width: 500px;
+    overflow:auto;
+}
+
+#background {
+    z-index: -1;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: black;
+    width: 100vw;
+    height: 100vh;
+}
+
+#app #nav {
+    z-index: 2;
+    min-width: 200px;
+    height: 100%;
+    overflow:stretch;
+}
+

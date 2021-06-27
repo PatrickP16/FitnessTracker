@@ -1,0 +1,32 @@
+#nav {
+    display: flex;
+    height: 100%;
+}
+
+#nav h1 {
+    font-size: 2em;
+    color: red;
+
+    position: fixed;
+    top: 0;
+    right: 10px;
+}
+
+#links {
+    display: flex;
+    /* flex-direction: row; */
+    flex-flow: column nowrap;
+    text-align: center;
+    /* justify-content: space-between; */
+
+}
+
+#links > * {
+    color: red;
+    text-decoration: none;
+  
+}
+
+#header{
+    color:red
+}

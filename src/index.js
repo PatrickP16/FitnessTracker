@@ -1,17 +1,51 @@
-import React from 'react'
-import ReactDOM from 'react-dom'
-import {BrowserRouter as Router, Route, Link, Switch} from 'react-router-dom'
-import App from './App'
+import React, { useState, useEffect } from 'react';
+import ReactDOM from 'react-dom';
+import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
+import * as All from './components';
+import './index.css'
 
-// ReactDOM.render(<Header />, document.getElementById('root'))
+function checkLocalLoggedIn(setLoggedIn) {
+    if (localStorage.getItem('User') && localStorage.getItem('Token')) {
+        return setLoggedIn(true);
+    };
+};
 
-// ReactDOM.render(<Login />, document.getElementById('root'))
-// ReactDOM.render(<Routines />, document.getElementById('root'))
 
+const App = () => {
+    const [ loggedIn, setLoggedIn ] = useState(false);
 
-ReactDOM.render(
-    <Router>
-        <App />
-    </Router>,
-    document.getElementById("root")
-)
+    useEffect(() => {
+        checkLocalLoggedIn(setLoggedIn);
+    }, []);
+
+    function logOut(event) {
+        event.preventDefault();
+        
+        localStorage.removeItem('User');
+        localStorage.removeItem('Token');
+
+        location.assign('/');
+    };
+
+    return (<>
+        <div id='app'>
+                <div id='background'></div>
+            <Router>
+                <All.Nav loggedIn={loggedIn} logOut={logOut}/>
+                <main>
+                    <Switch>
+                        <Route path='/activities' render={ () =>  <All.Activities loggedIn={loggedIn}/> }/>
+                        <Route path='/login' render={ () =>  <All.Login loggedIn={loggedIn} setLoggedIn={setLoggedIn}/> }/>
+                        <Route path='/my-routines' component={All.My_Routines} />
+                        <Route path='/register' render={ () => <All.Register loggedIn={loggedIn} setLoggedIn={setLoggedIn}/> }/>
+                        <Route path='/routines' render={ () => <All.Routines loggedIn={loggedIn}/> }/>
+                        <Route path='/' render={ () => <All.Home loggedIn={loggedIn}/>} />
+                    </Switch>
+                </main>
+            </Router>
+        </div>
+        <All.Footer/>
+    </>);
+};
+
+ReactDOM.render( <App/>, document.getElementById('root') );
