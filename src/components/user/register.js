@@ -70,7 +70,7 @@ const Register = ({ loggedIn, setLoggedIn }) => {
 
     return (<>
         <form id='register' onSubmit={submitReg}>
-            <h3>Registration</h3>
+            <h3>Registration---</h3>
             
             <p className='error'>{error}</p>
             <label htmlFor='username'>

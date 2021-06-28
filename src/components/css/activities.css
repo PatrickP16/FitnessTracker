@@ -11,3 +11,11 @@
     margin: 10px;
     max-width: 80vw;
 }
+
+#motivate {
+    color: red;
+    padding-left: 40px;
+    padding-top: 20px;
+    font-size: 1.5em;
+    text-shadow: 1px 1px 2px whitesmoke, 0 0 1em whitesmoke, 0 0 0.2em whitesmoke;
+}

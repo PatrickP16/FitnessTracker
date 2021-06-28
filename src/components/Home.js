@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import siteUrl from './url';
+import './css/activities.css'
 
 async function getUser(token) {
     let { data } = await axios.get(`${siteUrl}/api/users/me`, {
@@ -15,7 +16,7 @@ async function getUser(token) {
 
 function displayUserData(userData) {
     return ( <>
-        <h1>Keep up the goodwork {userData.username}</h1>
+        <h1 id = 'motivate'>Keep up the goodwork {userData.username}</h1>
         
     </>);
 };

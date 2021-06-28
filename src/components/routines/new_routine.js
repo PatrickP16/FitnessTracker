@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import axios from 'axios';
+import Popup from 'react-popup';
 import siteUrl from '../url';
 
 async function handleSubmit(event, token, setError) {
@@ -21,12 +22,14 @@ async function handleSubmit(event, token, setError) {
                 isPublic: `${isPublic.checked}`
             }
         });
-
+        alert('Post successful\nTime to start working out!!');
         location.assign('/routines');
+        
     } catch(error) {
-        setError('*A routine with that name already exists');
+        setError('Routine already exists');
         console.error(error);
     };
+    
 };
 
 const NewRoutine = ({token}) => {
@@ -59,6 +62,7 @@ const NewRoutine = ({token}) => {
             <button id ='btn-submit' type='submit'>Submit</button>    
         </form>
     );
+  
 };
 
 export default NewRoutine;
