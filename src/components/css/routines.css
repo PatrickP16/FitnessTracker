@@ -21,11 +21,15 @@
 .activity {
     background-color: white;
     padding: 5px;
+    
     border: 1px solid red;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    border-radius: 10px;
+    margin: 10px;
+    max-width: 80vw;
 }
 
 #new-routine {

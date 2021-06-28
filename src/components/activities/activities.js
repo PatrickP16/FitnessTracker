@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import siteUrl from '../url';
-import '../css/routines.css';
+import '../css/activities.css';
 
 async function getActivities() {
     let { data } = await axios.get(`${siteUrl}/api/activities`);

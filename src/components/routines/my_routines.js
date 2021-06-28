@@ -63,13 +63,13 @@ const My_Routines = () => {
         getMyRoutines(setRoutines);
     }, []);
     
-    const routineList = routines.map((rout, index) => 
+    const displayRoutines = routines.map((rout, index) => 
         <RoutineReturn key={index} routine={rout} user={user} />);
 
     return (
         <div id='routine-list'>
             <NewRoutine token={token} />
-            {routineList}
+            {displayRoutines}
         </div> );
 };
 

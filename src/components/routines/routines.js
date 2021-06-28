@@ -62,18 +62,29 @@ const Routines = ({ loggedIn }) => {
     const token = localStorage.getItem('Token');
 
     const [routines, setRoutines] = useState([]);
+    /* TESTING PAGE LIMIT */
+    const [page, setPage] = useState(0)
 
     useEffect(() => {
         getAllRoutines(setRoutines);
     }, []);
     
-    const routineList = routines.map((rout, index) => 
+    //Another line here 
+    let limmitedRoutines = routines.slice(0 + page * 20, page *20 +20)
+
+    //The code to be replaced
+    // const displayRoutines = routines.map((rout, index) => 
+    //     <RoutineReturn key={index} routine={rout} user={user} />);
+
+    const displayRoutines = limmitedRoutines.map((rout, index) => 
         <RoutineReturn key={index} routine={rout} user={user} />);
 
     return (
         <div id='routine-list'>
+            {/* Adding the next line */}
+            <button onClick={() => setPage(page + 1)}>Next 20</button>
             {loggedIn ? <NewRoutine token={token} /> : null}
-            {routineList}
+            {displayRoutines}
         </div> );
 };
 

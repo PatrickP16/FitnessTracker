@@ -34,12 +34,17 @@ const App = () => {
                 <All.Nav loggedIn={loggedIn} logOut={logOut}/>
                 <main>
                     <Switch>
-                        <Route path='/activities' render={ () =>  <All.Activities loggedIn={loggedIn}/> }/>
-                        <Route path='/login' render={ () =>  <All.Login loggedIn={loggedIn} setLoggedIn={setLoggedIn}/> }/>
+                        <Route path='/activities' render={ () =>  
+                            <All.Activities loggedIn={loggedIn}/> }/>
+                        <Route path='/login' render={ () => 
+                             <All.Login loggedIn={loggedIn} setLoggedIn={setLoggedIn}/> }/>
                         <Route path='/my-routines' component={All.My_Routines} />
-                        <Route path='/register' render={ () => <All.Register loggedIn={loggedIn} setLoggedIn={setLoggedIn}/> }/>
-                        <Route path='/routines' render={ () => <All.Routines loggedIn={loggedIn}/> }/>
-                        <Route path='/' render={ () => <All.Home loggedIn={loggedIn}/>} />
+                        <Route path='/register' render={ () =>
+                             <All.Register loggedIn={loggedIn} setLoggedIn={setLoggedIn}/> }/>
+                        <Route path='/routines' render={ () => 
+                            <All.Routines loggedIn={loggedIn}/> }/>
+                        <Route path='/' render={ () => 
+                            <All.Home loggedIn={loggedIn}/>} />
                     </Switch>
                 </main>
             </Router>
@@ -47,5 +52,4 @@ const App = () => {
         <All.Footer/>
     </>);
 };
-
 ReactDOM.render( <App/>, document.getElementById('root') );
